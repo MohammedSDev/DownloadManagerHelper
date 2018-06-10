@@ -279,11 +279,12 @@ public class DownloadManagerHelper {
         shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
         shareIntent.setType("image*//*");*/
 
+        Log.d("mud", "showFileContent: fileProvider: " + context.getPackageName() + ".fileprovider");
         Uri uriForFile =
                 null;
         try {
             uriForFile = FileProvider.getUriForFile(context
-                    , "co.clickapps.retrofittwo.fileprovider"
+                    , context.getPackageName() + ".fileprovider"
                     , new File(getFilePath(context, uri)));
         } catch (URISyntaxException e) {
             e.printStackTrace();
