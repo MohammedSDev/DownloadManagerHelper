@@ -65,10 +65,12 @@ public class MainActivity extends AppCompatActivity
         tvS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                DownloadState downloadStatus = helper.getDownloadStatus(0);
-//                Log.d(TAG, "onClick: status: " + downloadStatus.getStatus());
-//                Log.d(TAG, "onClick: reason: " + downloadStatus.getReason());
-//                Log.d(TAG, "onClick: percent: " + downloadStatus.getPercent());
+                long downloadId = helper.getDownloadId(102);
+                Log.d(TAG, "onClick: downlpad Id:  " + downloadId);
+                DownloadState downloadStatus = helper.getDownloadStatus(downloadId);
+                Log.d(TAG, "onClick: status: " + downloadStatus.getStatus());
+                Log.d(TAG, "onClick: reason: " + downloadStatus.getReason());
+                Log.d(TAG, "onClick: percent: " + downloadStatus.getPercent());
             }
         });
 
@@ -76,7 +78,10 @@ public class MainActivity extends AppCompatActivity
         tvC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                helper.cancel(l);
+
+                long downloadId = helper.getDownloadId(102);
+                Log.d(TAG, "onClick: downlpad Id:  " + downloadId);
+                helper.cancel(downloadId);
             }
         });
     }
