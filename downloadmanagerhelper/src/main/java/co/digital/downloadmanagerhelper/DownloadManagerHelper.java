@@ -237,7 +237,10 @@ public class DownloadManagerHelper {
      * */
     public long getDownloadId(int taskId){
 //        if (taskId != 0)
-        return mTaskIds.get(taskId);
+        Long aLong = mTaskIds.get(taskId);
+        if (aLong == null)
+            aLong = -1l;
+        return aLong;
     }
 
     /**
